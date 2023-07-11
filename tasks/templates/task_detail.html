@@ -23,16 +23,16 @@
 
                 <form action = "{% url 'complete_task' task_id %}" method="POST">
                     {% csrf_token %}
-                    <a class= "btn btn-secondary">
+                    <button class= "btn btn-secondary">
                         Complete
-                    </a>
+                    </button>
                 </form>
     
                 <form action = "{% url 'complete_task' task_id %}" method="POST">
                     {% csrf_token %}
-                    <a class= "btn btn-danger">
+                    <button class= "btn btn-danger">
                         Delete
-                    </a>
+                    </button>
                 </form>
     
             </div>

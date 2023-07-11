@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<main class= "container">
+    <div class="row">
+        <div class= "col-md-6 offset-md-3">
+            {% if page == 1 %}
+            <h1 class="text-center display-3 py-4">Tasks Pending</h1>
+
+            
+            <a class = "btn btn-secondary" href="{% url 'tasks_completed' %}">
+                Tasks Completed
+            </a>
+
+            {% else %}
+
+            <h1 class="text-center display-3 py-4">Tasks Completed</h1>
+            
+            <a class = "btn btn-secondary" href="{% url 'tasks' %}">
+                Tasks Pending
+            </a>
+            
+
+            {% endif %}
+
+
+            <ul class= "list-group">
+                {% for task in tasks %}
+
+                <a class= "list-group-item" href = "{% url 'task_detail' task.id %}">
+                    <header class= "d-flex">
+                        {% if task.important %}
+                            <h2 class = "fw-bold text-success">{{task.title}}</h2>
+                        {% else %}
+                            <h2>{{task.title}}<h2>
+                        {% endif %}
+                    </header>                   
+                    <p>{{ task.description}}</p>
+                    <p>{{ task.datecompleted|date:'M j Y:i'}}</p>
+                    
+                </a>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

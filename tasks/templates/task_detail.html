@@ -28,7 +28,7 @@
                     </button>
                 </form>
     
-                <form action = "{% url 'complete_task' task_id %}" method="POST">
+                <form action = "{% url 'delete_task' task_id %}" method="POST">
                     {% csrf_token %}
                     <button class= "btn btn-danger">
                         Delete
